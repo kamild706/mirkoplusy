@@ -1,5 +1,5 @@
 frontend/
-frontend-source/css
+frontend-source/css/
 
 # User-specific stuff:
 .idea/**/workspace.xml
