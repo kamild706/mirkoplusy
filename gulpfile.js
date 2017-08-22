@@ -9,33 +9,16 @@ var autoprefixer = require("gulp-autoprefixer");
 var runSequence = require("run-sequence");
 var sourcemaps = require("gulp-sourcemaps");
 var replace = require("gulp-replace");
-// var browserSync = require("browser-sync").create();
-/*
-gulp.task("browser-sync", function() {
-    browserSync.init({
-        server: {
-            baseDir: "src/",
-            port: 3000
-        }
-    });
-
-    // gulp.watch("src/css/!*.css").on("change", browserSync.reload);
-});*/
 
 gulp.task("useref", function() {
     return gulp.src("frontend-source/index.html")
         .pipe(useref())
-        .pipe(sourcemaps.init())
+        // .pipe(sourcemaps.init())
         .pipe(gulpIf("*.js", uglify()))
-        .pipe(sourcemaps.write())
+        // .pipe(sourcemaps.write())
         .pipe(gulpIf("*.css", cleanCSS()))
-        // .pipe(replace(/\{\{wtf\}\}(\/[a-z0-9.\/]+\.(css|js))/gi, '$1')) //Prevent problems with uncommented lines outside a build block
         .pipe(replace(/(\/[a-z0-9/.]+\.(css|js))/gi, '/mirkoplusy$1'))
         .pipe(gulp.dest("frontend/"));
-});
-
-gulp.task("watch", function() {
-   gulp.watch("src/scss/**/*.scss", ["sass"]);
 });
 
 gulp.task("sass", function() {

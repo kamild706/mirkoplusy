@@ -3,11 +3,6 @@
   src: url("../fonts/ProximaNova-Light.otf") format("opentype");
 }
 
-@font-face {
-  font-family: "Omnes-ExtraLight";
-  src: url("../fonts/Omnes-ExtraLight.otf") format("opentype");
-}
-
 body {
   background-color: #222;
   color: #fff;
@@ -28,10 +23,13 @@ body {
   width: 650px;
 }
 
+input, button {
+  font-family: inherit;
+}
+
 input {
   border-radius: 5px;
   display: block;
-  font-family: ProximaNova-Light, sans-serif;
   margin: 0 auto;
   padding: 5px 10px;
   border: 1px solid #eee;
@@ -46,7 +44,6 @@ input {
 
 button {
   display: block;
-  font-family: ProximaNova-Light, sans-serif;
   padding: 5px 10px;
   border: medium none;
   border-radius: 5px;
@@ -68,7 +65,6 @@ button {
 
 label {
   display: block;
-  //font-family: Omnes-ExtraLight, sans-serif;
   font-size: 24px;
   margin: 0 auto 10px;
   max-width: 470px;

@@ -1,6 +1,7 @@
 # mirkoplusy
 
-http://s32.pl/mikroplusy/
+http://t32.pl/mikroplusy/
 
 
-Analiza głosów ma portalu http://wykop.pl/mikroblog
+Skrypt sortuje plusujących wpis lub komentarz na mikroblogu pod względem płci.
+Umożliwia obserwacje zainteresowania daną treścią przez mężczyzn, kobiety i użytkowników niezadeklarowanych.
