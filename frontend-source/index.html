@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="author" content="Matt23">
+    <title>MirkoPlusy</title>
+
+    <!--build:css /css/bundle.css-->
+    <link rel="stylesheet" href="css/loadingSpinner.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!--endbuild-->
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/mustache.min.js"></script>
+    <!--build:js /js/bundle.js-->
+    <script src="js/main.js"></script>
+    <!--endbuild-->
+
+</head>
+
+<body>
+<div class="form-bcg">
+    <div class="form-wrapper">
+        <label for="url">Wprowadź adres do wpisu lub komentarza na mikroblogu</label>
+        <input id="url" placeholder="Lub identyfikator"/>
+        <button type="button" id="btn">Analizuj</button>
+    </div>
+    <div class="loadingSpinner">
+        <div class="wBall" id="wBall_1">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_2">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_3">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_4">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_5">
+            <div class="wInnerBall"></div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div id="container">
+    </div>
+</div>
+</body>
+
+</html>

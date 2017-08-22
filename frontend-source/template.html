@@ -1,0 +1,46 @@
+<div id="metrics">
+    <div>
+        <p>{{ author }}</p>
+        <p>Data utworzenia: {{ date }}</p>
+    </div>
+    <div>
+        <p>Liczba plusów: {{ votesNumber }}</p>
+        <p>Niebieskich pasków: {{ menNumber }}, {{ #percent }} {{ menNumber }} {{ /percent }}%</p>
+        <p>Różowych pasków: {{ womenNumber }}, {{ #percent }} {{ womenNumber }} {{ /percent }}%</p>
+        <p>Niezdefiniowanych: {{ unknownNumber }}, {{ #percent }} {{ unknownNumber }} {{ /percent }}%</p>
+    </div>
+</div>
+<div id="nicknames">
+    {{ #menNumber }}
+    <div id="men">
+        Niebiescy:
+        <p>
+            {{ #voters.men }}
+            <a href="http://wykop.pl/ludzie/{{ . }}/">{{ . }}</a>,
+            {{ /voters.men }}
+        </p>
+    </div>
+    {{ /menNumber }}
+
+    {{ #womenNumber }}
+    <div id="women">
+        Różowe:
+        <p>
+            {{ #voters.women }}
+            <a href="http://wykop.pl/ludzie/{{ . }}/">{{ . }}</a>,
+            {{ /voters.women }}
+        </p>
+    </div>
+    {{ /womenNumber }}
+
+    {{ #unknownNumber }}
+    <div id="unknown">
+        Niezdefiniowani:
+        <p>
+            {{ #voters.unknown }}
+            <a href="http://wykop.pl/ludzie/{{ . }}/">{{ . }}</a>,
+            {{ /voters.unknown }}
+        </p>
+    </div>
+    {{ /unknownNumber }}
+</div>

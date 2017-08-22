@@ -1,0 +1,193 @@
+@font-face {
+  font-family: "ProximaNova-Light";
+  src: url("../fonts/ProximaNova-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Omnes-ExtraLight";
+  src: url("../fonts/Omnes-ExtraLight.otf") format("opentype");
+}
+
+body {
+  background-color: #222;
+  color: #fff;
+  font-family: ProximaNova-Light, sans-serif;
+  > div {
+    &:nth-child(2) {
+      width: 650px;
+      margin: 45px auto;
+    }
+  }
+}
+
+.form-bcg {
+  border-radius: 5px;
+  background-color: #f05f40;
+  height: 270px;
+  margin: 50px auto 0;
+  width: 650px;
+}
+
+input {
+  border-radius: 5px;
+  display: block;
+  font-family: ProximaNova-Light, sans-serif;
+  margin: 0 auto;
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  font-size: 15px;
+  height: 26px;
+  width: 440px;
+}
+
+.form-wrapper {
+  padding-top: 30px;
+}
+
+button {
+  display: block;
+  font-family: ProximaNova-Light, sans-serif;
+  padding: 5px 10px;
+  border: medium none;
+  border-radius: 5px;
+  font-size: 15px;
+  height: 37px;
+  margin: 20px auto 0;
+  width: 462px;
+  &::-moz-focus-inner {
+    border: 0 none;
+  }
+  &:focus {
+    outline: 0 none;
+  }
+  &:active {
+    padding: 8px 13px 6px;
+    vertical-align: top;
+  }
+}
+
+label {
+  display: block;
+  //font-family: Omnes-ExtraLight, sans-serif;
+  font-size: 24px;
+  margin: 0 auto 10px;
+  max-width: 470px;
+  text-align: center;
+}
+
+a {
+  border: medium none;
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+#jsRequired {
+  font-size: 18px;
+  text-align: center;
+  display: none;
+}
+
+#metrics {
+  font-size: 19px;
+  > div {
+    &:first-child {
+      color: #e8967c;
+      margin-bottom: 30px;
+      p {
+        margin-bottom: 0;
+        &:nth-child(2) {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+  div {
+    p {
+      margin: 15px 0 15px 0;
+    }
+  }
+}
+
+#error {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#nicknames {
+  margin-top: 50px;
+  font-size: 18px;
+  p {
+    margin-top: 0;
+  }
+  > div {
+    &#men {
+      color: #1b5a99;
+    }
+
+    &#women {
+      color: #ff5580;
+    }
+  }
+}
+
+@media all and (max-width: 800px) {
+  .form-bcg {
+    width: 600px;
+  }
+  body {
+    > div {
+      &:nth-child(2) {
+        width: 600px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 670px) {
+  .form-bcg {
+    width: 500px;
+  }
+  body {
+    > div {
+      &:nth-child(2) {
+        width: 500px;
+      }
+    }
+  }
+  input {
+    width: 430px;
+  }
+  button {
+    width: 452px;
+  }
+}
+
+@media all and (max-width: 530px) {
+  .form-bcg {
+    width: 95%;
+  }
+  body {
+    > div {
+      &:nth-child(2) {
+        width: 95%;
+      }
+    }
+  }
+  input {
+    width: 80%;
+  }
+  button {
+    width: calc(80% + 22px);
+  }
+  label {
+    font-size: 23px;
+    max-width: 80%;
+  }
+  .loadingSpinner {
+    margin-top: 12px;
+  }
+}
