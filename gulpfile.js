@@ -23,7 +23,7 @@ gulp.task("useref", function() {
 
 gulp.task("sass", function() {
    //noinspection JSUnresolvedFunction
-    return gulp.src("frontend-source/scss/*.scss")
+    return gulp.src("frontend-source/sass/*.sass")
        .pipe(sass({outputStyle: "expanded"}).on("error", sass.logError))
         .pipe(autoprefixer({
             browsers: ["last 2 versions"]
