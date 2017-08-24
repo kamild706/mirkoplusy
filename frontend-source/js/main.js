@@ -1,12 +1,11 @@
 var showErrorMessage = function(message) {
-    $("#container").html("<div id=\"error\">" + message + "</div>");
+    $("#container").html("<div class='error'>" + message + "</div>");
 };
 
 var showData = function(content) {
-    $.get("/mirkoplusy/template.html", function(template) {
+    $.get("/mirkoplusy/template.html?1", function(template) {
         var rendered = Mustache.render(template.toString(), content);
         $("#container").html(rendered);
-        console.log("here");
     });
 };
 
@@ -28,6 +27,15 @@ var getThisShit = function() {
         },
         get unknownNumber() {
             return this.voters.unknown.length;
+        },
+        get putMenInSpoiler() {
+            return this.menNumber > 100;
+        },
+        get putWomenInSpoiler() {
+            return this.womenNumber > 100;
+        },
+        get putUnknownInSpoiler() {
+            return this.unknownNumber > 100;
         },
         percent: function() {
             return function(param, render) {
@@ -119,13 +127,13 @@ var processComment = function(entryId, commentId) {
             var data = getThisShit();
             data["author"] = "Autor komentarza: " + response["comments"][i]["author"];
             data["date"] = response["comments"][i]["date"];
-            data['votesNumber'] = response["vote_count"];
+            data['votesNumber'] = response["comments"][i]["vote_count"];
 
             sortBySex(data, response["comments"][i]["voters"]);
             showData(data);
 
-            $("#url").val(response["url"]);
-            // window.history.pushState("", "", "/mirkoplusy/wpis/" + entryId + "/komentarz/" + commentId);
+            $("#url").val("https://wykop.pl/wpis/" + entryId + "/#comment-" + commentId);
+            window.history.pushState("", "", "/mirkoplusy/wpis/" + entryId + "/komentarz/" + commentId);
         }
         else showErrorMessage("Komentarz nie istnieje, lub został usunięty");
 

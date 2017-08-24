@@ -1,46 +1,100 @@
-<div id="metrics">
-    <div>
-        <p>{{ author }}</p>
-        <p>Data utworzenia: {{ date }}</p>
-    </div>
-    <div>
-        <p>Liczba plusów: {{ votesNumber }}</p>
-        <p>Niebieskich pasków: {{ menNumber }}, {{ #percent }} {{ menNumber }} {{ /percent }}%</p>
-        <p>Różowych pasków: {{ womenNumber }}, {{ #percent }} {{ womenNumber }} {{ /percent }}%</p>
-        <p>Niezdefiniowanych: {{ unknownNumber }}, {{ #percent }} {{ unknownNumber }} {{ /percent }}%</p>
-    </div>
+<div class="overview">
+  <div>
+    <p>{{ author }}</p>
+    <p>Data utworzenia: {{ date }}</p>
+  </div>
+  <div>
+    <p>Liczba plusów: {{ votesNumber }}</p>
+    <p>Niebieskich pasków: {{ menNumber }}, {{ #percent }} {{ menNumber }} {{ /percent }}%</p>
+    <p>Różowych pasków: {{ womenNumber }}, {{ #percent }} {{ womenNumber }} {{ /percent }}%</p>
+    <p>Niezdefiniowanych: {{ unknownNumber }}, {{ #percent }} {{ unknownNumber }} {{ /percent }}%</p>
+  </div>
 </div>
-<div id="nicknames">
-    {{ #menNumber }}
-    <div id="men">
-        Niebiescy:
-        <p>
+<div class="nicknames">
+  {{ #menNumber }}
+  <div class="men">
+    Niebiescy:
+    {{ #putMenInSpoiler }}
+      <div class="spoiler">
+        <input class="spoilerController" id="spoilerController1" type="checkbox">
+        <label for="spoilerController1">
+          <span class="openSpoiler">[Treść zwinięta, kliknij aby pokazać]</span>
+          <span class="closeSpoiler">[Ukryj zawartość]</span>
+        </label>
+        <div class="spoilerContent">
+          <p>
             {{ #voters.men }}
             <a href="http://wykop.pl/ludzie/{{ . }}/">{{ . }}</a>,
             {{ /voters.men }}
-        </p>
-    </div>
-    {{ /menNumber }}
+          </p>
+        </div>
+      </div>
+    {{ /putMenInSpoiler }}
+    {{ ^putMenInSpoiler }}
+      <p>
+        {{ #voters.men }}
+        <a href="http://wykop.pl/ludzie/{{ . }}/">{{ . }}</a>,
+        {{ /voters.men }}
+      </p>
+    {{ /putMenInSpoiler }}
+  </div>
+  {{ /menNumber }}
 
-    {{ #womenNumber }}
-    <div id="women">
-        Różowe:
-        <p>
+  {{ #womenNumber }}
+  <div class="women">
+    Różowe:
+    {{ #putWomenInSpoiler }}
+      <div class="spoiler">
+        <input class="spoilerController" id="spoilerController2" type="checkbox">
+        <label for="spoilerController2">
+          <span class="openSpoiler">[Treść zwinięta, kliknij aby pokazać]</span>
+          <span class="closeSpoiler">[Ukryj zawartość]</span>
+        </label>
+        <div class="spoilerContent">
+          <p>
             {{ #voters.women }}
             <a href="http://wykop.pl/ludzie/{{ . }}/">{{ . }}</a>,
             {{ /voters.women }}
-        </p>
-    </div>
-    {{ /womenNumber }}
+          </p>
+        </div>
+      </div>
+    {{ /putWomenInSpoiler }}
+    {{ ^putWomenInSpoiler }}
+      <p>
+        {{ #voters.women }}
+        <a href="http://wykop.pl/ludzie/{{ . }}/">{{ . }}</a>,
+        {{ /voters.women }}
+      </p>
+    {{ /putWomenInSpoiler }}
+  </div>
+  {{ /womenNumber }}
 
-    {{ #unknownNumber }}
-    <div id="unknown">
-        Niezdefiniowani:
-        <p>
+  {{ #unknownNumber }}
+  <div class="unknown">
+    Niezdefiniowani:
+    {{ #putUnknownInSpoiler }}
+      <div class="spoiler">
+        <input class="spoilerController" id="spoilerController3" type="checkbox">
+        <label for="spoilerController3">
+          <span class="openSpoiler">[Treść zwinięta, kliknij aby pokazać]</span>
+          <span class="closeSpoiler">[Ukryj zawartość]</span>
+        </label>
+        <div class="spoilerContent">
+          <p>
             {{ #voters.unknown }}
             <a href="http://wykop.pl/ludzie/{{ . }}/">{{ . }}</a>,
             {{ /voters.unknown }}
-        </p>
-    </div>
-    {{ /unknownNumber }}
+          </p>
+        </div>
+      </div>
+    {{ /putUnknownInSpoiler }}
+    {{ ^putUnknownInSpoiler }}
+      <p>
+        {{ #voters.unknown }}
+        <a href="http://wykop.pl/ludzie/{{ . }}/">{{ . }}</a>,
+        {{ /voters.unknown }}
+      </p>
+    {{ /putUnknownInSpoiler }}
+  </div>
+  {{ /unknownNumber }}
 </div>
